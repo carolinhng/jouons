@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: 918de1ad10f56f48477199603abf245b2f01a470
+  branch: main
+  specs:
+    faker (3.2.2)
+      i18n (>= 1.8.11, < 2)
+
+GIT
   remote: https://github.com/heartcombo/simple_form.git
   revision: 8f77f598b32ed11b0d56c44481607a6e911bcecb
   specs:
@@ -136,7 +144,7 @@ GEM
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
     io-console (0.6.0)
-    irb (1.9.0)
+    irb (1.9.1)
       rdoc
       reline (>= 0.3.8)
     jbuilder (2.11.5)
@@ -165,10 +173,8 @@ GEM
       timeout
     net-smtp (0.4.0)
       net-protocol
-    nio4r (2.6.0)
+    nio4r (2.6.1)
     nokogiri (1.15.5-x86_64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.15.5-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.5.4)
@@ -277,7 +283,6 @@ GEM
 
 PLATFORMS
   x86_64-darwin-23
-  x86_64-linux
 
 DEPENDENCIES
   autoprefixer-rails
@@ -287,6 +292,7 @@ DEPENDENCIES
   debug
   devise
   error_highlight (>= 0.4.0)
+  faker!
   font-awesome-sass (~> 6.1)
   importmap-rails
   jbuilder

@@ -7,3 +7,33 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+require "json"
+require 'faker'
+
+puts "Cleaning database..."
+User.destroy_all
+
+puts 'Creating 50 fake users...'
+2.times do
+  user = User.new(
+    first_name: Faker::Name.name,
+    password: Faker::Internet.name,
+    last_name: Faker::Name.name,
+    address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+    email: Faker::Internet.email,
+  )
+  user.save!
+end
+puts User.user_id.random
+
+puts 'Finished!'
+
+
+# url = URI("http://tmdb.lewagon.com/movie/top_rated?api_key=<your_api_key>")
+# movie_serialized = URI.open(url).read
+# movies = JSON.parse(movie_serialized)["results"]
+
+# movies.each do |movie|
+#   Movie.create!(title: movie["original_title"],overview: movie["overview"] ,poster_url: movie["poster_path"] ,rating: movie["vote_average"].to_i)
+# end
