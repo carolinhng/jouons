@@ -1,2 +1,11 @@
-<h1>Games#edit</h1>
-<p>Find me in app/views/games/edit.html.erb</p>
+<h1>Modifier <%=@game.name%></h1>
+<%= simple_form_for @game do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :price %>
+    <%= f.input :player_number, collection: ["Jeux en solo", "2 joueurs", "De 3 à 4 joueurs", "De 5 à 8 joueurs", "+ de 8 joueurs"] %>
+    <%= f.input :games_duration, collection: ["Moins de 30 minutes", "De 30 minutes à 1h", "+ d'1h"] %>
+    <%= f.input :availability %>
+    <%= f.submit %>
+  <% end %>
+

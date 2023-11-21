@@ -1,6 +1,20 @@
 <div data-controller="formtoggle class="position-relative" >
 
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <div class="d-flex">
+      <%= link_to "#", class: "navbar-brand" do %>
+        <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+      <% end %>
+    <% if user_signed_in? %>
+      <div>
+        <p class="mt-3"><%= current_user.address %> <i class="fa-solid fa-chevron-down"></i></p>
+      </div>
+    <% end %>
+    </div>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
     <div class="container-fluid">
 
