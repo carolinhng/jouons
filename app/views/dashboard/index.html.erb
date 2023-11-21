@@ -1,0 +1,16 @@
+<h1>Bonjour <%= current_user.first_name %></h1>
+
+<h2>Voici vos jeux :</h2>
+
+<ul>
+  <% @my_games.each do |game| %>
+    <li>
+    <div class="card mb-4 bg-light px-3 py-3 mt-2" style="width: 40rem;">
+      <h4><%= game.name %></h4>
+      <p>Prix : <%= game.price %></p>
+      <p>Disponible : <%= game.availability %></p>
+      <%= link_to "Voir le jeu", game_path(game) %>
+    </li>
+    </div>
+  <% end %>
+</ul>

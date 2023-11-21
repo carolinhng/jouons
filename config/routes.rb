@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'dashboard/index'
   get 'rents/new'
   get 'rents/create'
   devise_for :users
@@ -15,4 +16,5 @@ Rails.application.routes.draw do
   resources :games do
     resources :rents, only: [:new, :create]
   end
+  resources :dashboard, only: [:index]
 end
