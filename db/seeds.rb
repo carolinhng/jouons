@@ -14,6 +14,10 @@ require 'faker'
 puts "Cleaning database..."
 User.destroy_all
 
+admin = User.new( first_name: "admin", password: "azerty", last_name: "admin", address: "Bordeaux",
+  email: "admin@admin.admin")
+admin.save!
+
 puts 'Creating 50 fake users...'
 2.times do
   user = User.new(
@@ -25,7 +29,26 @@ puts 'Creating 50 fake users...'
   )
   user.save!
 end
-puts User.user_id.random
+
+# p users.sample.id
+
+# 50.times do
+#   users = User.all
+#   game = Game.new(
+#   name:
+#   description:
+#   price:
+#   player_number:
+#   games_duration:
+#   availability:
+#   user_id: users.sample.id,
+#   )
+#   game.save!
+# end
+
+# users.each do |user|
+
+# end
 
 puts 'Finished!'
 
