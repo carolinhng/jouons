@@ -12,14 +12,16 @@ require "json"
 require 'faker'
 
 puts "Cleaning database..."
+Game.destroy_all
 User.destroy_all
+
 
 admin = User.new( first_name: "admin", password: "azerty", last_name: "admin", address: "Bordeaux",
   email: "admin@admin.admin")
 admin.save!
 
 puts 'Creating 50 fake users...'
-2.times do
+10.times do
   user = User.new(
     first_name: Faker::Name.name,
     password: Faker::Internet.name,
@@ -30,33 +32,20 @@ puts 'Creating 50 fake users...'
   user.save!
 end
 
-# p users.sample.id
+users = User.all
+p users.sample.id
 
-# 50.times do
-#   users = User.all
-#   game = Game.new(
-#   name:
-#   description:
-#   price:
-#   player_number:
-#   games_duration:
-#   availability:
-#   user_id: users.sample.id,
-#   )
-#   game.save!
-# end
+50.times do
+  game = Game.new(
+  name: Faker::Game.title,
+  description: Faker::ChuckNorris.fact,
+  price: Faker::Number.number(digits: 2),
+  player_number: ["jeux en solo", "2 joueurs", "3 à 4 joueurs", "5 à 8 joueurs", "+ de 8 joueurs"].sample,
+  games_duration: ["Moins de 30 minutes", "30 minutes à 1h", "+ d'1h"].sample,
+  availability: Faker::Boolean.boolean,
+  user_id: users.sample.id
+  )
+  game.save!
+end
 
-# users.each do |user|
-
-# end
-
-puts 'Finished!'
-
-
-# url = URI("http://tmdb.lewagon.com/movie/top_rated?api_key=<your_api_key>")
-# movie_serialized = URI.open(url).read
-# movies = JSON.parse(movie_serialized)["results"]
-
-# movies.each do |movie|
-#   Movie.create!(title: movie["original_title"],overview: movie["overview"] ,poster_url: movie["poster_path"] ,rating: movie["vote_average"].to_i)
-# end
+puts "See finished !"
