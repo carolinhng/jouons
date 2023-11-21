@@ -6,6 +6,7 @@
     <%= f.input :price %>
     <%= f.input :player_number, collection: ["Jeux en solo", "2 joueurs", "De 3 à 4 joueurs", "De 5 à 8 joueurs", "+ de 8 joueurs"] %>
     <%= f.input :games_duration, collection: ["Moins de 30 minutes", "De 30 minutes à 1h", "+ d'1h"] %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.input :availability %>
     <%= f.submit %>
   <% end %>
