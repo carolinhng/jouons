@@ -1,5 +1,10 @@
 <h1>Bonjour <%= current_user.first_name %></h1>
 
+<button class="btn btn-success p-2 ml-3">
+<i class="fa-solid fa-plus" style="color: #ffffff;"></i>
+<%= link_to "Ajouter un nouveau jeu", new_game_path, :class=>"text-white"%>
+</button>
+
 <h2>Voici vos jeux :</h2>
 
 <ul>
@@ -10,6 +15,11 @@
       <p>Prix : <%= game.price %></p>
       <p>Disponible : <%= game.availability %></p>
       <%= link_to "Voir le jeu", game_path(game) %>
+      <%= link_to "Modifier le jeu", edit_game_path(game) %>
+      <%= link_to "Supprimer le jeu",
+  game_path(game),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
     </li>
     </div>
   <% end %>

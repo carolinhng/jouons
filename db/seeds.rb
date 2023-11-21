@@ -37,7 +37,7 @@ p users.sample.id
 
 50.times do
   game = Game.new(
-  name: Faker::Game.title,
+  name: Faker::TvShows::SiliconValley.invention,
   description: Faker::ChuckNorris.fact,
   price: Faker::Number.number(digits: 2),
   player_number: ["jeux en solo", "2 joueurs", "3 à 4 joueurs", "5 à 8 joueurs", "+ de 8 joueurs"].sample,
