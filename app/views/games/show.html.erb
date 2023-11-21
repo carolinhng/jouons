@@ -1,2 +1,17 @@
-<h1>Games#show</h1>
-<p>Find me in app/views/games/show.html.erb</p>
+<h1><%= @game.name%></h1>
+
+
+<h2>Prix : <%= @game.price%> €</h2>
+<p>Description : <%= @game.description%></p>
+<p>Nombre de joueurs : <%= @game.player_number%></p>
+<p>Durée de jeu : <%= @game.games_duration%></p>
+
+<% if @game.availability? %>
+    <p>Le jeu est disponible</p>
+<% end %>
+<% if @game.availability == false %>
+    <p>Le jeu n'est pas disponible</p>
+<% end %>
+
+
+
