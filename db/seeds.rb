@@ -48,4 +48,4 @@ p users.sample.id
   game.save!
 end
 
-puts "Finished!"
+puts "See finished !"
