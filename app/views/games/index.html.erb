@@ -1,4 +1,14 @@
 <h1>Games#index</h1>
-<p>Find me in app/views/games/index.html.erb</p>
+
+
+<ul>
+  <% @games.each do |game| %>
+    <li>
+      <h4><%= game.name %></h4>
+      <p>Prix : <%= game.price %> €</p>
+      <%= link_to "Voir le jeu", game_path(game) %>
+    </li>
+  <% end %>
+</ul>
 
 <%= link_to "Enregistrer un nouveau jeu", new_game_path %>
