@@ -1,6 +1,11 @@
 <h1><%= @game.name%></h1>
 
 
+<% @game.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+
+
 <h2>Prix : <%= @game.price%> €</h2>
 <p>Description : <%= @game.description%></p>
 <p>Nombre de joueurs : <%= @game.player_number%></p>
