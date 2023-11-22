@@ -3,7 +3,7 @@
 
 <button class="btn btn-success p-2 ml-3">
 <i class="fa-solid fa-plus" style="color: #ffffff;"></i>
-<%= link_to "Ajouter un nouveau jeu", new_game_path, :class=>"text-white"%>
+<%= link_to "Ajouter une annonce", new_game_path, :class=>"text-white"%>
 </button>
 
 <ul>
@@ -11,12 +11,15 @@
     <li>
     <div class="card mb-4 bg-light px-3 py-3 mt-2" style="width: 40rem;">
       <h4><%= game.name %></h4>
-      <p>Prix : <%= game.price %></p>
+      <p>Prix : <%= game.price %> €</p>
       <p>Disponible : <%= game.availability %></p>
+      <p><i class="fa-solid fa-users"></i> <%= game.player_number %></p>
+      <p><i class="fa-solid fa-clock"></i> <%= game.games_duration%></p>
+
       <%= link_to "Voir le jeu", game_path(game) %>
     </li>
     </div>
   <% end %>
 </ul>
 
-<%= link_to "Enregistrer un nouveau jeu", new_game_path %>
+<%= link_to "Enregistrer un nouveau jeu à louer", new_game_path %>
