@@ -1,2 +1,7 @@
-<h1>Rents#new</h1>
-<p>Find me in app/views/rents/new.html.erb</p>
+<h1>Location de <%= @game.name %> </h1>
+
+<%= simple_form_for [@game, @rent] do |f| %>
+<%= f.input :start_date %>
+<%= f.input :end_date %>
+<%= f.submit "Demande de location", class: "btn btn-primary" %>
+<% end %>
