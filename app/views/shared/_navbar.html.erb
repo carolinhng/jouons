@@ -48,9 +48,14 @@
     </div>
   </div>
 
-  <div data-formtoggle-target="togglableElement" class=" py-5 ps-3 bg-white shadow-sm d-none position-absolute w-100">
+  <div data-formtoggle-target="togglableElement" class=" py-5 ps-3 bg-white shadow-sm d-none position-absolute w-100 z-3">
   <h3>Choisir ma nouvelle localisation</h3>
-    <input type="text">
-    <button class="btn btn-primary">Choisir cette adresse</button>
+  <%= simple_form_for(current_user, as: :user, method: :patch, url: registration_path(current_user)) do |f| %>
+  <%= f.input :address %>
+  <%= f.submit 'Changer ma localisation' %>
+  <% end %>
     </div>
 </div>
+
+<%# update en ajax sur le bouton  %>
+<%# refresh le haut de la page %>
