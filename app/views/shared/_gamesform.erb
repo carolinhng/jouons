@@ -8,7 +8,7 @@
     <%= f.input :games_duration, label: 'Durée du jeu', collection: ["Moins de 30 minutes", "De 30 minutes à 1h", "+ d'1h"] %>
     <%= f.input :photos, label: 'Ajouter des photos', as: :file, input_html: { multiple: true } %>
     <%= f.input :availability, label: 'Disponibilité' %>
-    <%= f.submit %>
+    <%= f.button :submit, 'Créer mon jeu', class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
