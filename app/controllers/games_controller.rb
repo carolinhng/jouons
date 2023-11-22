@@ -34,7 +34,7 @@ class GamesController < ApplicationController
   def update
     @game = Game.find(params[:id])
     if @game.update(game_params)
-      redirect_to list_path(@list)
+      redirect_to game_path(@game)
     else
       render :new, status: :unprocessable_entity
     end
