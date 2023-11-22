@@ -27,7 +27,7 @@ puts 'Creating 50 fake users...'
     password: Faker::Internet.name,
     last_name: Faker::Name.name,
     address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
-    email: Faker::Internet.email,
+    email: Faker::Internet.email
   )
   user.save!
 end
@@ -35,17 +35,17 @@ end
 users = User.all
 p users.sample.id
 
-50.times do
-  game = Game.new(
-  name: Faker::Game.title,
-  description: Faker::ChuckNorris.fact,
-  price: Faker::Number.number(digits: 2),
-  player_number: ["jeux en solo", "2 joueurs", "3 à 4 joueurs", "5 à 8 joueurs", "+ de 8 joueurs"].sample,
-  games_duration: ["Moins de 30 minutes", "30 minutes à 1h", "+ d'1h"].sample,
-  availability: Faker::Boolean.boolean,
-  user_id: users.sample.id
-  )
-  game.save!
-end
+# 50.times do
+#   game = Game.new(
+#   name: Faker::Game.title,
+#   description: Faker::ChuckNorris.fact,
+#   price: Faker::Number.number(digits: 2),
+#   player_number: ["jeux en solo", "2 joueurs", "3 à 4 joueurs", "5 à 8 joueurs", "+ de 8 joueurs"].sample,
+#   games_duration: ["Moins de 30 minutes", "30 minutes à 1h", "+ d'1h"].sample,
+#   availability: Faker::Boolean.boolean,
+#   user_id: users.sample.id
+#   )
+#   game.save!
+# end
 
 puts "Seed finished !"

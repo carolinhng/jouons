@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/faker-ruby/faker.git
-  revision: 918de1ad10f56f48477199603abf245b2f01a470
+  revision: e4ab99f0c356ccfe62c6bf7da80575e989c3ecd7
   branch: main
   specs:
     faker (3.2.2)
@@ -179,7 +179,7 @@ GEM
     minitest (5.20.0)
     msgpack (1.7.2)
     mutex_m (0.2.0)
-    net-imap (0.4.5)
+    net-imap (0.4.6)
       date
       net-protocol
     net-pop (0.1.2)
@@ -190,10 +190,6 @@ GEM
       net-protocol
     netrc (0.11.0)
     nio4r (2.6.1)
-    nokogiri (1.15.5-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.15.5-x86_64-darwin)
-      racc (~> 1.4)
     nokogiri (1.15.5-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -307,8 +303,6 @@ GEM
     zeitwerk (2.6.12)
 
 PLATFORMS
-  arm64-darwin-21
-  x86_64-darwin-23
   x86_64-linux
 
 DEPENDENCIES

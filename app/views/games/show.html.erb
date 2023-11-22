@@ -1,14 +1,13 @@
 <h1><%= @game.name%></h1>
 
 
-  <% if @game.photos.attached? %>
+<% if @game.photos.attached? %>
     <% @game.photos.each do |photo| %>
-      <%= cl_image_tag(photo.key, height: 300, width: 400, crop: :fill) %>
+      <%# <%= cl_image_tag photo.path, height: 300, width: 400, crop: :fill %>
+      <%= photo.path%>
     <% end %>
-  <% end %>
+<% end %>
 <%# "http://loremflickr.com/300/260/cocktail" %>
-
-
 
 <h2>Prix : <%= @game.price%> €</h2>
 <p>Description : <%= @game.description%></p>
