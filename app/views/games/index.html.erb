@@ -16,6 +16,7 @@
       <p>Disponible : <%= game.availability %></p>
       <p><i class="fa-solid fa-users"></i> <%= game.player_number %></p>
       <p><i class="fa-solid fa-clock"></i> <%= game.games_duration%></p>
+      <p><i class="fa-solid fa-clock"></i> <%= game.user.address%></p>
 
       <%= link_to "Voir le jeu", game_path(game) %>
       <%= link_to "Faire une demande de location", new_game_rent_path(game.id)%>
