@@ -1,4 +1,6 @@
-<h1>Location de <%= @game.name %> </h1>
+<div class="container p-4 m-4">
+  <div class="col-md-6 bg-light p-4">
+<h1 class="my-3 mx-5">Location de <%= @game.name %> </h1>
 
 <%= simple_form_for [@game, @rent] do |f| %>
 <%= f.input :start_date,
