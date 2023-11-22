@@ -37,6 +37,13 @@
                 <%= link_to "Profil", dashboard_index_path, class: "dropdown-item" %>
               </div>
             </li>
+            <div data-formtoggle-target="togglableElement" class=" py-5 ps-3 bg-white shadow-sm d-none position-absolute w-100 z-3">
+              <h3>Choisir ma nouvelle localisation</h3>
+              <%= simple_form_for(current_user, as: :user, method: :patch, url: registration_path(current_user)) do |f| %>
+                <%= f.input :address %>
+                <%= f.submit 'Changer ma localisation' %>
+              <% end %>
+            </div>
           <% else %>
             <li class="nav-item">
               <%= link_to "Login", new_user_session_path, class: "nav-link" %>
