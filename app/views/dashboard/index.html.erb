@@ -1,15 +1,15 @@
 <h1>Bonjour <%= current_user.first_name %></h1>
 
 <button class="btn btn-success p-2 ml-3">
-<i class="fa-solid fa-plus" style="color: #ffffff;"></i>
-<%= link_to "Publier une nouvelle annonce", new_game_path, :class=>"text-white"%>
+  <i class="fa-solid fa-plus" style="color: #ffffff;"></i>
+  <%= link_to "Publier une nouvelle annonce", new_game_path, :class=>"text-white"%>
 </button>
 
 <h2>Vos annonces de jeux</h2>
 
 <ul>
   <% @my_games.each do |game| %>
-    <li>
+  <li>
     <div class="card mb-4 bg-light px-3 py-3 mt-2" style="width: 40rem;">
       <h4><%= game.name %></h4>
       <p>Prix : <%= game.price %></p>
@@ -20,26 +20,26 @@
   game_path(game),
   data: {turbo_method: :delete, turbo_confirm: "Etes-vous sur de vouloir supprimer ce jeu ?"}
 %>
-    </li>
-    </div>
+  </li>
+  </div>
   <% end %>
 </ul>
 
 <h2>Mes demandes de location :</h2>
 
 <ul>
-<% @my_rents.each do |rent| %>
-<li>
-<div class="card mb-4 bg-light px-3 py-3 mt-2" style="width: 40rem;">
-<h4>
-<%= Game.find_by(id: rent.user_id).name %>
-</h4>
-<p> Demande de la part de
-<strong>
-<%= User.find_by(id: rent.user_id).first_name %>
-</strong></p>
-<p>Tarif de location : <%= Game.find_by(id: rent.user_id).price %> €</p>
-<p> Du : <%= rent.start_date %>  au : <%= rent.end_date %> </p>
-</div>
-<% end %>
+  <% @my_rents.each do |rent| %>
+  <li>
+    <div class="card mb-4 bg-light px-3 py-3 mt-2" style="width: 40rem;">
+      <h4>
+        <%= rent.game.name %>
+      </h4>
+      <p> Demande de la part de
+        <strong>
+          <%= rent.user.first_name %>
+        </strong></p>
+      <p>Tarif de location : <%= rent.game.price %> €</p>
+      <p> Du : <%= rent.start_date %> au : <%= rent.end_date %> </p>
+    </div>
+    <% end %>
 </ul>
