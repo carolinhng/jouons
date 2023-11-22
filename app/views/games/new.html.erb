@@ -3,13 +3,13 @@
 <div class="container">
   <h1>Enregistrer un nouveau jeu</h1>
   <%= simple_form_for @game do |f| %>
-      <%= f.input :name %>
-      <%= f.input :description %>
-      <%= f.input :price %>
-      <%= f.input :player_number, collection: ["Jeux en solo", "2 joueurs", "De 3 à 4 joueurs", "De 5 à 8 joueurs", "+ de 8 joueurs"] %>
-      <%= f.input :games_duration, collection: ["Moins de 30 minutes", "De 30 minutes à 1h", "+ d'1h"] %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-      <%= f.input :availability %>
+      <%= f.input :name, label: 'Nom du jeu'%>
+      <%= f.input :description, label: 'Description'%>
+      <%= f.input :price, label: 'Prix/jour'%>
+      <%= f.input :player_number, label: 'Nombre de joueurs', collection: ["Jeux en solo", "2 joueurs", "De 3 à 4 joueurs", "De 5 à 8 joueurs", "+ de 8 joueurs"] %>
+      <%= f.input :games_duration, label: 'Durée du jeu', collection: ["Moins de 30 minutes", "De 30 minutes à 1h", "+ d'1h"] %>
+      <%= f.input :photos, label: 'Ajouter des photos', as: :file, input_html: { multiple: true } %>
+      <%= f.input :availability, label: 'Disponibilité' %>
       <%= f.submit %>
     <% end %>
 </div>
