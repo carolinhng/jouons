@@ -6,11 +6,15 @@
 <%= link_to "Ajouter une annonce", new_game_path, :class=>"text-white"%>
 </button>
 
+
+<div class="cards">
+
+
 <ul>
   <% @games.each do |game| %>
     <li>
     <div class="gamecard" style="width: 40rem;">
-      <%# <%= cl_image_tag game.photos.first.key %> %>
+      <%# <%= cl_image_tag game.photos.first.key %>
       <h4><%= game.name %></h4>
       <p>Prix : <%= game.price %> €</p>
       <p>Disponible : <%= game.availability %></p>
@@ -21,8 +25,8 @@
       <%= link_to "Voir le jeu", game_path(game) %>
       <%= link_to "Faire une demande de location", new_game_rent_path(game.id)%>
     </li>
-    </div>
   <% end %>
 </ul>
+</div>
 
 <%= link_to "Enregistrer un nouveau jeu à louer", new_game_path %>

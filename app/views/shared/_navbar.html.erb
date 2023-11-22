@@ -49,10 +49,10 @@
 
   <div data-formtoggle-target="togglableElement" class=" py-5 ps-3 bg-white shadow-sm d-none position-absolute w-100 z-3">
   <h3>Choisir ma nouvelle localisation</h3>
-  <%= simple_form_for(current_user, as: :user, method: :patch, url: registration_path(current_user)) do |f| %>
-  <%= f.input :address %>
-  <%= f.submit 'Changer ma localisation' %>
-  <% end %>
+  <%# <% simple_form_for(current_user, as: :user, method: :patch, url: registration_path(current_user)) do |f| %>
+  <%# <%= f.input :address %>
+  <%# <%= f.submit 'Changer ma localisation' %>
+  <%# <% end %>
     </div>
 </div>
 
