@@ -1,28 +1,23 @@
 
-<h1>Liste des jeux disponibles</h1>
+<h1 class="m-4">La liste des jeux disponibles à <%= current_user.address %></h1>
 
-<button class="btn btn-success p-2 ml-3">
-<i class="fa-solid fa-plus" style="color: #ffffff;"></i>
-<%= link_to "Ajouter une annonce", new_game_path, :class=>"text-white"%>
-</button>
+<div class="cards">
 
-<ul>
   <% @games.each do |game| %>
-    <li>
-    <div class="gamecard" style="width: 40rem;">
-      <%# <%= cl_image_tag game.photos.first.key %>
-      <h4><%= game.name %></h4>
-      <p>Prix : <%= game.price %> €</p>
-      <p>Disponible : <%= game.availability %></p>
-      <p><i class="fa-solid fa-users"></i> <%= game.player_number %></p>
-      <p><i class="fa-solid fa-clock"></i> <%= game.games_duration%></p>
-      <p><i class="fa-solid fa-clock"></i> <%= game.user.address%></p>
 
-      <%= link_to "Voir le jeu", game_path(game) %>
-      <%= link_to "Faire une demande de location", new_game_rent_path(game.id)%>
-    </li>
-    </div>
+      <div class="gamecard">
+    <%= link_to game_path(game) do %>
+        <%= image_tag "logo.png", class: "img-card"%>
+        <div class= "mt-3">
+          <h4><%= game.name %></h4>
+          <p>Prix : <%= game.price %> €</p>
+          <p>Disponible : <%= game.availability %></p>
+          <p><i class="fa-solid fa-users"></i> <%= game.player_number %></p>
+          <p><i class="fa-solid fa-clock"></i> <%= game.games_duration%></p>
+        </div>
+    <% end %>
+      </div>
+
   <% end %>
-</ul>
 
-<%= link_to "Enregistrer un nouveau jeu à louer", new_game_path %>
+</div>
