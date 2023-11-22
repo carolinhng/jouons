@@ -50,7 +50,6 @@ bordeaux_users.save!
 users = User.all
 p users.sample.id
 
-
 50.times do
   game = Game.new(
   name: Faker::TvShows::SiliconValley.invention,
@@ -63,6 +62,5 @@ p users.sample.id
   )
   game.save!
 end
-
 
 puts "Seed finished !"

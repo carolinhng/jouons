@@ -3,8 +3,7 @@
 
 <% if @game.photos.attached? %>
     <% @game.photos.each do |photo| %>
-      <%# <%= cl_image_tag photo.path, height: 300, width: 400, crop: :fill %>
-      <%= photo.path%>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
     <% end %>
 <% end %>
 <%# "http://loremflickr.com/300/260/cocktail" %>
