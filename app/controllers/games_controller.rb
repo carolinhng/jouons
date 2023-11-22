@@ -14,6 +14,7 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
 
+    @game.user = current_user
     if @game.save
       redirect_to game_path(@game)
       raise
@@ -28,8 +29,8 @@ class GamesController < ApplicationController
   end
 
   def update
-    @list = List.find(params[:id])
-    if @list.update(list_params)
+    @game = Game.find(params[:id])
+    if @game.update(game_params)
       redirect_to list_path(@list)
     else
       render :new, status: :unprocessable_entity

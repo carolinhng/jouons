@@ -27,7 +27,7 @@ puts 'Creating 50 fake users...'
     password: Faker::Internet.name,
     last_name: Faker::Name.name,
     address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
-    email: Faker::Internet.email,
+    email: Faker::Internet.email
   )
   user.save!
 end
@@ -50,6 +50,7 @@ bordeaux_users.save!
 users = User.all
 p users.sample.id
 
+
 50.times do
   game = Game.new(
   name: Faker::TvShows::SiliconValley.invention,
@@ -62,5 +63,6 @@ p users.sample.id
   )
   game.save!
 end
+
 
 puts "Seed finished !"
