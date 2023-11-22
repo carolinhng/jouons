@@ -1,6 +1,11 @@
 class GamesController < ApplicationController
   def index
     @games = Game.all
+    @games_filter = @games.map do |game|
+      if game.user.address == current_user.address
+        @games = Game.where(availability: true)
+      end
+    end
   end
 
   def show
@@ -17,10 +22,8 @@ class GamesController < ApplicationController
     @game.user = current_user
     if @game.save
       redirect_to game_path(@game)
-      raise
     else
       render :new, status: :unprocessable_entity
-      raise
     end
   end
 
