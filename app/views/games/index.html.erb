@@ -9,7 +9,8 @@
 <ul>
   <% @games.each do |game| %>
     <li>
-    <div class="card mb-4 bg-light px-3 py-3 mt-2" style="width: 40rem;">
+    <div class="gamecard" style="width: 40rem;">
+      <%# <%= cl_image_tag game.photos.first.key %> %>
       <h4><%= game.name %></h4>
       <p>Prix : <%= game.price %> €</p>
       <p>Disponible : <%= game.availability %></p>

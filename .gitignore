@@ -42,3 +42,5 @@
 .DS_Store
 Gemfile.lock
 .env*
+.env*
+.env*
