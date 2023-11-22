@@ -19,3 +19,5 @@
 <% if @game.availability == false %>
     <p>Le jeu n'est pas disponible</p>
 <% end %>
+
+<%= link_to "Faire une demande de location", new_game_rent_path(@game.id)%>

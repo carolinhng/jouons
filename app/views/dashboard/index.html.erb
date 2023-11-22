@@ -24,3 +24,22 @@
     </div>
   <% end %>
 </ul>
+
+<h2>Mes demandes de location :</h2>
+
+<ul>
+<% @my_rents.each do |rent| %>
+<li>
+<div class="card mb-4 bg-light px-3 py-3 mt-2" style="width: 40rem;">
+<h4>
+<%= Game.find_by(id: rent.user_id).name %>
+</h4>
+<p> Demande de la part de
+<strong>
+<%= User.find_by(id: rent.user_id).first_name %>
+</strong></p>
+<p>Tarif de location : <%= Game.find_by(id: rent.user_id).price %> €</p>
+<p> Du : <%= rent.start_date %>  au : <%= rent.end_date %> </p>
+</div>
+<% end %>
+</ul>
