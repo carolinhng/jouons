@@ -32,12 +32,27 @@ puts 'Creating 50 fake users...'
   user.save!
 end
 
+bordeaux_users =
+  User.new( first_name: Faker::Name.name, password: Faker::Internet.name, last_name: Faker::Name.name, address: "Cours Balguerie, Bordeaux",
+  email: Faker::Internet.email)
+  User.new( first_name: Faker::Name.name, password: Faker::Internet.name, last_name: Faker::Name.name, address: "Cours de l'intendance, Bordeaux",
+  email: Faker::Internet.email)
+  User.new( first_name: Faker::Name.name, password: Faker::Internet.name, last_name: Faker::Name.name, address: "Grand theatre, Bordeaux",
+  email: Faker::Internet.email)
+  User.new( first_name: Faker::Name.name, password: Faker::Internet.name, last_name: Faker::Name.name, address: "Rue Judaique, Bordeaux",
+  email: Faker::Internet.email)
+  User.new( first_name: Faker::Name.name, password: Faker::Internet.name, last_name: Faker::Name.name, address: "Rue du palais Gallien, Bordeaux",
+  email: Faker::Internet.email)
+  User.new( first_name: Faker::Name.name, password: Faker::Internet.name, last_name: Faker::Name.name, address: "Nansouty, Bordeaux",
+  email: Faker::Internet.email)
+bordeaux_users.save!
+
 users = User.all
 p users.sample.id
 
 50.times do
   game = Game.new(
-  name: Faker::Game.title,
+  name: Faker::TvShows::SiliconValley.invention,
   description: Faker::ChuckNorris.fact,
   price: Faker::Number.number(digits: 2),
   player_number: ["jeux en solo", "2 joueurs", "3 à 4 joueurs", "5 à 8 joueurs", "+ de 8 joueurs"].sample,
