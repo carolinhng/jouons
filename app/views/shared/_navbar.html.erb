@@ -12,10 +12,6 @@
       <div class="d-flex">
         <%= link_to "#", class: "navbar-brand" do %>
           <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-
-          <%# <%= current_user.photo.attached? ? (cl_image_path current_user.photo.key) : "http://loremflickr.com/300/260/cocktail" %>
-
-
         <% end %>
         <% if user_signed_in? %>
           <div data-action="click->formtoggle#fire">
@@ -33,7 +29,8 @@
 
             <li class="nav-item dropdown">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
+              <%# <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
+              <%= render "shared/profilpick" %>
             </a>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "Action", "#", class: "dropdown-item" %>
