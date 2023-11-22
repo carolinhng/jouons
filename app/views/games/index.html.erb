@@ -18,6 +18,7 @@
       <p><i class="fa-solid fa-clock"></i> <%= game.games_duration%></p>
 
       <%= link_to "Voir le jeu", game_path(game) %>
+      <%= link_to "Faire une demande de location", new_game_rent_path(game.id)%>
     </li>
     </div>
   <% end %>
