@@ -9,6 +9,17 @@
     <% end %>
   </div>
 
+  <h3>Localisation du jeu : <%= @game.user.address%></h3>
+
+  <div class="owner">
+    <div class="avatar">
+      <%= render "shared/profilpick" %>
+    </div>
+    <div class="proprietaire">
+      <p><span>Loué par : </span><br><%= @game.user.first_name.capitalize %> <%= @game.user.last_name.upcase %></p>
+    </div>
+  </div>
+
   <h3>Prix : <%= @game.price%> €</h3>
   <p><strong>Description :</strong><br><%= @game.description%></p>
   <p><strong>Nombre de joeur :</strong><br><%= @game.player_number%></p>
