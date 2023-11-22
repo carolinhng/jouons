@@ -1,23 +1,25 @@
-<h1><%= @game.name%></h1>
+<div class="container mt-5 container_show">
+  <h1><%= @game.name%></h1>
 
-
-<% if @game.photos.attached? %>
-    <% @game.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <div class= "photos_show">
+    <% if @game.photos.attached? %>
+        <% @game.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+        <% end %>
     <% end %>
-<% end %>
-<%# "http://loremflickr.com/300/260/cocktail" %>
+  </div>
 
-<h2>Prix : <%= @game.price%> €</h2>
-<p>Description : <%= @game.description%></p>
-<p>Nombre de joueurs : <%= @game.player_number%></p>
-<p>Durée de jeu : <%= @game.games_duration%></p>
+  <h3>Prix : <%= @game.price%> €</h3>
+  <p><strong>Description :</strong><br><%= @game.description%></p>
+  <p><strong>Nombre de joeur :</strong><br><%= @game.player_number%></p>
+  <p><strong>Durée du jeu :</strong><br><%= @game.games_duration%></p>
 
-<% if @game.availability? %>
-    <p>Le jeu est disponible !</p>
-<% end %>
-<% if @game.availability == false %>
-    <p>Le jeu n'est pas disponible</p>
-<% end %>
+  <% if @game.availability? %>
+      <p>Disponible</p>
+  <% end %>
+  <% if @game.availability == false %>
+      <p>Indisponible</p>
+  <% end %>
 
-<%= link_to "Faire une demande de location", new_game_rent_path(@game.id)%>
+  <%= link_to "Faire une demande de location", new_game_rent_path(@game.id), class: "btn btn-primary"%>
+</div>
