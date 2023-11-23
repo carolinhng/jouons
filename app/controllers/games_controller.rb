@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+
   def index
     @games = Game.all.where(availability: true)
     if params[:query].present?
@@ -41,6 +42,12 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @game.destroy
     redirect_to dashboard_index_path, status: :see_other
+  end
+
+  def update_localisation
+    current_user.address = params[:user][:address]
+    current_user.save
+    redirect_to games_path
   end
 
   private
