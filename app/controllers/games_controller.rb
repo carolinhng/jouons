@@ -9,6 +9,13 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    @user = @game.user
+    # The `geocoded` scope filters only flats with coordinates
+    @marker =
+      {
+        lat: @user.geocode[0],
+        lng: @user.geocode[1]
+      }
   end
 
   def new
