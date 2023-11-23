@@ -13,3 +13,21 @@
   margin: 0;
   padding: 0;
 }
+
+.labelnav {
+
+    height: 48px;
+
+    .inputnav {
+      width: 300px;
+      border-color: #F4F4F4;
+      background-image: none;
+    }
+}
+
+.labelsearch {
+
+  .inputnav {
+    width: 300px;
+  }
+}
