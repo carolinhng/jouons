@@ -6,5 +6,8 @@ class User < ApplicationRecord
   has_many :rents
   has_many :games
   has_one_attached :photo
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
   # has_many :games, through: :rents
 end

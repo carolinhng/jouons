@@ -12,6 +12,7 @@ require "json"
 require 'faker'
 
 puts "Cleaning database..."
+Rent.destroy_all
 Game.destroy_all
 User.destroy_all
 
@@ -33,9 +34,9 @@ puts 'Creating 50 fake users...'
 end
 
 bordeaux_users =
-  User.new( first_name: Faker::Name.name, password: Faker::Internet.name, last_name: Faker::Name.name, address: "Cours Balguerie, Bordeaux",
+  User.new( first_name: Faker::Name.name, password: Faker::Internet.name, last_name: Faker::Name.name, address: "107 Cours Balguerie Stuttenberg, 33300 Bordeaux",
   email: Faker::Internet.email)
-  User.new( first_name: Faker::Name.name, password: Faker::Internet.name, last_name: Faker::Name.name, address: "Cours de l'intendance, Bordeaux",
+  User.new( first_name: Faker::Name.name, password: Faker::Internet.name, last_name: Faker::Name.name, address: "114 Rue Lucien Faure, 33300 Bordeaux",
   email: Faker::Internet.email)
   User.new( first_name: Faker::Name.name, password: Faker::Internet.name, last_name: Faker::Name.name, address: "Grand theatre, Bordeaux",
   email: Faker::Internet.email)
