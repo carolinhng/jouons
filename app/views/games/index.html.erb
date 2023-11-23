@@ -1,6 +1,8 @@
 
 <h1 class="m-4">La liste des jeux disponibles à <%= current_user.address %></h1>
 
+<%= render "shared/searchbar" %>
+
 <div class="cards">
 
   <% @games.each do |game| %>

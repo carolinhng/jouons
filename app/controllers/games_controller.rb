@@ -1,10 +1,8 @@
 class GamesController < ApplicationController
   def index
-    @games = Game.all
-    @games_filter = @games.map do |game|
-      if game.user.address == current_user.address
-        @games = Game.where(availability: true)
-      end
+    @games = Game.all.where(availability: true)
+    if params[:query].present?
+      @games = @games.search_by_name_and_description(params[:query])
     end
   end
 
