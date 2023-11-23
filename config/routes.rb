@@ -14,4 +14,7 @@ Rails.application.routes.draw do
     resources :rents, only: [:new, :create]
   end
   resources :dashboard, only: [:index]
+
+
+  patch '/games', to: 'games#update_localisation'
 end

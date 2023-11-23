@@ -12,7 +12,7 @@
           <%= image_tag "logo.png" %>
         <% end %>
         <% if user_signed_in? %>
-          <div data-action="click->formtoggle#fire">
+          <div data-action="click->formtoggle#open">
             <p class="mt-3 toggleform"><%= current_user.address %> <i class="fa-solid fa-chevron-down"></i></p>
           </div>
         <% end %>
@@ -26,9 +26,9 @@
           <% if user_signed_in? %>
             <%= link_to "Home", games_path, class: "navbar-brand" %>
             <li class="nav-item dropdown">
-            <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= render "shared/profilpick" %>
-            </a>
+              <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= render "shared/profilpick" %>
+              </a>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "Action", "#", class: "dropdown-item" %>
                 <%= link_to "Another action", "#", class: "dropdown-item" %>
@@ -36,13 +36,7 @@
                 <%= link_to "Profil", dashboard_index_path, class: "dropdown-item" %>
               </div>
             </li>
-            <div data-formtoggle-target="togglableElement" class=" py-5 ps-3 bg-white shadow-sm d-none position-absolute w-100 z-3">
-              <h3>Choisir ma nouvelle localisation</h3>
-              <%= simple_form_for(current_user, as: :user, method: :patch, url: registration_path(current_user)) do |f| %>
-                <%= f.input :address %>
-                <%= f.submit 'Changer ma localisation' %>
-              <% end %>
-            </div>
+
           <% else %>
               <%= link_to "Home", root_path, class: "navbar-brand" %>
             <li class="nav-item">
@@ -52,10 +46,22 @@
         </ul>
       </div>
     </div>
+
   </div>
 
+  <% if user_signed_in? %>
+    <div data-formtoggle-target="togglableElement" class=" py-5 ps-3 bg-white shadow-sm d-none w-100 z-3">
+      <h3>Choisir ma nouvelle localisation</h3>
+
+        <%= simple_form_for(current_user, as: :user, method: :patch, url: games_path) do |f| %>
+          <div class="d-flex">
+            <%= f.input :address, label: 'Votre localisation'%>
+            <%= f.hidden_field :current_password %>
+            <%= f.submit 'Valider', class: "btn btn-primary" %>
+          </div>
+        <% end %>
+
+    </div>
+  <% end %>
 
 </div>
-
-<%# update en ajax sur le bouton  %>
-<%# refresh le haut de la page %>
