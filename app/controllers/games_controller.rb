@@ -1,10 +1,21 @@
 class GamesController < ApplicationController
 
   def index
-    @games = Game.all.where(availability: true)
+    @games = Game.where(availability: true)
+    # @users = @games.user
     if params[:query].present?
       @games = @games.search_by_name_and_description(params[:query])
+      # @users = @games.user
     end
+    # @markers = @users.geocoded.map do |user|
+    #   {
+    #     lat: user.geocode[0],
+    #     lng: user.geocode[1],
+    #     info_window_html: render_to_string(partial: "infos_card_map_game",
+    #     locals: { user: user, game: @game }),
+    #     marker_html: render_to_string(partial: "marker_map_game")
+    #   }
+    # end
   end
 
   def show
