@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :rents, only: [:new, :create]
   end
   resources :dashboard, only: [:index]
+  patch 'toggle-availability', to: "games#toggle_availability"
 
 
   patch '/games', to: 'games#update_localisation'

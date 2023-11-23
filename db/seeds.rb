@@ -22,16 +22,16 @@ admin = User.new( first_name: "admin", password: "azerty", last_name: "admin", a
 admin.save!
 
 puts 'Creating 50 fake users...'
-10.times do
-  user = User.new(
-    first_name: Faker::Name.name,
-    password: Faker::Internet.name,
-    last_name: Faker::Name.name,
-    address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
-    email: Faker::Internet.email
-  )
-  user.save!
-end
+# 10.times do
+#   user = User.new(
+#     first_name: Faker::Name.name,
+#     password: Faker::Internet.name,
+#     last_name: Faker::Name.name,
+#     address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+#     email: Faker::Internet.email
+#   )
+#   user.save!
+# end
 
 bordeaux_users =
   User.new( first_name: Faker::Name.name, password: Faker::Internet.name, last_name: Faker::Name.name, address: "107 Cours Balguerie Stuttenberg, 33300 Bordeaux",
