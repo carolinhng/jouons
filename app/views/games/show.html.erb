@@ -9,10 +9,25 @@
     <% end %>
   </div>
 
-  <h3>Prix : <%= @game.price%> €</h3>
-  <p><strong>Description :</strong><br><%= @game.description%></p>
-  <p><strong>Nombre de joeur :</strong><br><%= @game.player_number%></p>
-  <p><strong>Durée du jeu :</strong><br><%= @game.games_duration%></p>
+  <h3>Localisation du jeu : <%= @game.user.address%></h3>
+
+  <div class="owner">
+    <div class="avatar">
+      <%= render "shared/profilpick" %>
+    </div>
+    <div class="proprietaire">
+      <p><span class="font-weight">Loué par : </span><br><%= @game.user.first_name.capitalize %> <%= @game.user.last_name.upcase %></p>
+    </div>
+  </div>
+
+  <div class="info-game">
+    <div class="price-time-game-container">
+      <p>Prix : <%= @game.price%> €</p>
+      <p><i class="fa-solid fa-users"></i>Nombre de joueur : <%= @game.player_number %></p>
+      <p><i class="fa-solid fa-clock"></i> Durée : <%= @game.games_duration%></p>
+    </div>
+    <p>Description :<br><%= @game.description%></p>
+  </div>
 
   <% if @game.availability? %>
       <p>Disponible</p>
