@@ -1,38 +1,52 @@
 <div data-controller="formtoggle class="position-relative" >
 
-  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon ">
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
     <div class="container-fluid">
-      <div class="d-flex">
+      <div class="d-flex align-items-center">
         <%= link_to "#", class: "navbar-brand" do %>
           <%= image_tag "logo.png" %>
         <% end %>
-        <% if user_signed_in? %>
-          <div data-action="click->formtoggle#open">
-            <p class="mt-3 toggleform"><%= current_user.address %> <i class="fa-solid fa-chevron-down"></i></p>
-          </div>
-        <% end %>
+            <%= link_to "Accueil", games_path, class: "text-decoration-none text-dark" %>
       </div>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+       <% if user_signed_in? %>
+
+          <div class="d-flex align-items-center">
+
+            <div data-action="click->formtoggle#open">
+              <p class="mt-3 me-3 toggleform"><%= current_user.address %> <i class="fa-solid fa-chevron-down"></i></p>
+            </div>
+
+            <div class="labelsearch">
+              <%= form_with url: games_path, method: :get, class: "d-flex" do %>
+              <%= text_field_tag :query,
+                    params[:query],
+                    class: "form-control inputnav",
+                    placeholder: "Chercher un jeu"
+                %>
+              <%= button_tag(type: "submit", class: "btn btn-primary") do %>
+                <i class="fa-solid fa-magnifying-glass"></i>
+              <% end %>
+              <% end %>
+            </div>
+          </div>
+
+      <% end %>
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
         <ul class="navbar-nav me-auto">
           <% if user_signed_in? %>
-            <%= link_to "Accueil", games_path, class: "navbar-brand" %>
+            <%= link_to "Publier une annonce", new_game_path, :class=>"btn btn-outline-primary me-3"%>
             <li class="nav-item dropdown">
               <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <%= render "shared/profilpick" %>
               </a>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "Mes locations", dashboard_index_path, class: "dropdown-item" %>
                 <%= link_to "Mon profil", edit_user_registration_path, class: "dropdown-item" %>
-                <%= link_to "Autres actions à définir", "#", class: "dropdown-item" %>
+                <%= link_to "Mes locations", dashboard_index_path, class: "dropdown-item" %>
                 <%= link_to "Me déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
               </div>
             </li>
@@ -50,14 +64,15 @@
   </div>
 
   <% if user_signed_in? %>
-    <div data-formtoggle-target="togglableElement" class=" py-5 ps-3 bg-white shadow-sm d-none w-100 z-3">
-      <h3>Choisir ma nouvelle localisation</h3>
+
+    <div data-formtoggle-target="togglableElement" class=" py-5 ps-3 bg-white shadow-sm d-none w-100 z-3 position-absolute">
+      <h3 class="mb-4">Choisir ma nouvelle localisation</h3>
 
         <%= simple_form_for(current_user, as: :user, method: :patch, url: games_path) do |f| %>
-          <div class="d-flex">
-            <%= f.input :address, label: 'Votre localisation'%>
+          <div class="d-flex labelnav">
+            <%= f.input :address, placeholder: "choisir une nouvelle adresse", label: false, input_html: { class: 'labelnav inputnav' }%>
             <%= f.hidden_field :current_password %>
-            <%= f.submit 'Valider', class: "btn btn-primary" %>
+            <%= f.submit 'Valider', class: "ms-3 px-5 btn btn-primary" %>
           </div>
         <% end %>
 
@@ -65,3 +80,7 @@
   <% end %>
 
 </div>
+
+<script>
+  document.getElementById('user_address').value = ""
+</script>
