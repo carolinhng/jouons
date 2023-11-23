@@ -1,0 +1,15 @@
+<div class="mapboxgl-popup">
+  <div class="mapboxgl-popup-content">
+    <h2>Jeu : <%= game.name %></h2>
+
+    <p class="font-size">Adresse : <br><%= user.address %></p>
+
+    <div class="profil">
+      <%= render "shared/profilpick" %>
+      <div>
+        <p class="name">Propriétaire : <%= user.first_name.capitalize %><br><%= user.last_name.upcase %></p>
+      </div>
+    </div>
+
+  </div>
+</div>

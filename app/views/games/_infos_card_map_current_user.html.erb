@@ -1,0 +1,14 @@
+<div class="mapboxgl-popup">
+  <div class="mapboxgl-popup-content">
+
+    <p class="font-size">Votre position : <br><%= current_user.address %></p>
+
+    <div class="profil">
+      <%= render "shared/profilpick" %>
+      <div>
+        <p class="name"><%= current_user.first_name.capitalize %><br><%= current_user.last_name.upcase %></p>
+      </div>
+    </div>
+
+  </div>
+</div>
