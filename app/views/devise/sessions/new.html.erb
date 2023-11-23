@@ -1,20 +1,55 @@
-<h2>Log in</h2>
+<section class="vh-100" style="background-color: #F2C572;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem;">
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+              <img src="https://images.unsplash.com/photo-1588954521402-729fccacba74?q=80&w=2786&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+            </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
+                <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+                  <div class="d-flex align-items-center mb-3 pb-1">
+                  <%= image_tag "icone", size: "50x50" %>
+                    <span class="h1 fw-bold p-3 mb-0">Jouons</span>
+                  </div>
+
+                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Viens jouer avec nous !</h5>
+
+                  <div class="form-outline mb-4">
+                    <%= f.input :email,
                 required: false,
                 autofocus: true,
                 input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <%= f.input :password,
+                label: "Mot de passe",
                 required: false,
                 input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
+                  </div>
+                  <div class="pt-1 mb-4">
+                  <%= f.button :submit, "Se connecter", class: "btn btn-dark btn-lg btn-block" %>
+                  <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                  </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
+                  <%= link_to "Mot de passe oublié ?", new_password_path(resource_name), class: "small text-muted" %>
+                  <p class="mb-5 pb-lg-2" style="color: #393f81;">Vous n'avez pas de compte ?
+                  <%= link_to "Créer un compte", new_registration_path(resource_name), style: "color: #393f81"%>
+                  <br><a href="#!" class="small text-muted">Termes d'utilisation.</a>
+                  <a href="#!" class="small text-muted">Politique de confidentialité</a>
+                <% end %>
 
-<%= render "devise/shared/links" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
