@@ -20,21 +20,33 @@
     </div>
   </div>
 
-  <div class="info-game">
+  <div class="info-game-container">
+
     <div class="price-time-game-container">
-      <p>Prix : <%= @game.price%> €</p>
-      <p><i class="fa-solid fa-users"></i>Nombre de joueur : <%= @game.player_number %></p>
+      <p><i class="fa-solid fa-users"></i> Nombre de joueur : <%= @game.player_number %></p>
       <p><i class="fa-solid fa-clock"></i> Durée : <%= @game.games_duration%></p>
+      <p>Description :<br><%= @game.description%></p>
+    <% if @game.availability? %>
+        <p>Disponible</p>
+    <% end %>
+    <% if @game.availability == false %>
+        <p>Indisponible</p>
+    <% end %>
     </div>
-    <p>Description :<br><%= @game.description%></p>
+
+    <div class="card-resume-rent">
+      <div class="card shadow-sm p-3 mb-5 bg-body" style="width: 18rem;">
+        <div class="card-body">
+          <h5>Prix : <%= @game.price%> €/jour</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  <% if @game.availability? %>
-      <p>Disponible</p>
-  <% end %>
-  <% if @game.availability == false %>
-      <p>Indisponible</p>
-  <% end %>
 
   <%= link_to "Faire une demande de location", new_game_rent_path(@game.id), class: "btn btn-primary"%>
 </div>
