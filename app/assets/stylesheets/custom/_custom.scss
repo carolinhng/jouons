@@ -33,21 +33,25 @@
 }
 
 .cards {
-  display: flex;
-  flex-wrap: wrap;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 24px;
 }
 .gamecard {
-  padding: 24px;
-  flex: 1 0 calc(25% - 48px);
-  max-width: calc(25% - 48px);
-  background-color: white;
-  margin: 24px;
-  border-radius: 12px;
 
+  border: 1px solid rgb(202, 202, 202);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: white;
+
+  .content {
+    padding: 16px;
+  }
   .img-card {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
+    object-fit: cover;
+    width: 100%;
+    height: 200px;
   }
 
   a {
@@ -60,6 +64,7 @@
   }
 
   &:hover {
-    border: 1px solid rgb(164, 164, 164);
+    border: 1px solid grey;
+
   }
 }
