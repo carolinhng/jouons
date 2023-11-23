@@ -11,11 +11,18 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @user = @game.user
     # The `geocoded` scope filters only flats with coordinates
-    @marker =
-      {
-        lat: @user.geocode[0],
-        lng: @user.geocode[1]
-      }
+    @markers = [
+      { lat: @user.geocode[0],
+        lng: @user.geocode[1],
+        info_window_html: render_to_string(partial: "infos_card_map_game",
+        locals: { user: @user, game: @game }),
+        marker_html: render_to_string(partial: "marker_map_game") },
+      { lat: current_user.geocode[0],
+        lng: current_user.geocode[1],
+        info_window_html: render_to_string(partial: "infos_card_map_current_user",
+        locals: { current_user: current_user }),
+        marker_html: render_to_string(partial: "marker_map_user") }
+    ]
   end
 
   def new

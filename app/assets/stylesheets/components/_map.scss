@@ -1,0 +1,51 @@
+.mapboxgl-popup {
+  max-width: 300px;
+  min-width: 200px;
+  border-radius: 10px;
+  padding: 5px;
+  top: -5px;
+  left: -5px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  width: 100%;
+  border-radius: 10px;
+  z-index: 1;
+
+  p {
+    font-size: 9px;
+    margin-bottom: 0px;
+    line-height: 12px;
+  }
+
+  h2 {
+    font-size: 11px;
+    font-weight: bold;
+  }
+}
+
+.profil {
+  padding-top: 10px;
+  border-top: 0.8px solid grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+
+  img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
+
+.name {
+  margin-left: 8px;
+}
+
+.font-size {
+  font-size: 8px;
+}
