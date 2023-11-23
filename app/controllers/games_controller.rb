@@ -57,6 +57,11 @@ class GamesController < ApplicationController
     redirect_to games_path
   end
 
+  def toggle_availability
+    @game = Game.find(params[:id])
+    @game.update(availability: !@game.availability)
+  end
+
   private
 
   def game_params

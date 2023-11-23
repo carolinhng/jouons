@@ -10,7 +10,15 @@
 <ul>
   <% @my_games.each do |game| %>
   <li>
-    <div class="card mb-4 bg-light px-3 py-3 mt-2" style="width: 40rem;">
+    <div class="card mb-4 bg-light px-3 py-3 mt-2" data-controller="formtoggle" data-formtoggle-url-value= "<%= toggle_availability_path(id: game.id) %>" style="width: 40rem;">
+      <div class="text-right">
+
+      <button class= "btn btn-danger btn-sm d-none" data-formtoggle-target="togglableElement">Indisponible</button>
+      <button class= "btn btn-success btn-sm" data-formtoggle-target="togglableElement" >Disponible</button>
+      <button class="btn btn-outline-primary"
+      data-action="click->formtoggle#fire"
+      >Activer mon annonce</button>
+      </div>
       <h4><%= game.name %></h4>
       <p>Prix : <%= game.price %></p>
       <p>Disponible : <%= game.availability %></p>
