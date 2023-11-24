@@ -9,22 +9,61 @@
 <h2 class="m-4"><Label></Label>Retrouvez ces jeux à la location</h2>
 
 
-<div class="cards">
 
-  <% @games.limit(4).each do |game| %>
+<main class="cards">
 
-    <div class="gamecard">
-      <%= link_to game_path(game) do %>
-          <%= image_tag "logo.png", class: "img-card"%>
-          <div class="content">
-            <div>
-              <h4><%= game.name %></h4>
-            <p><i class="fa-solid fa-users"></i> <%= game.player_number %></p>
-            <p><i class="fa-solid fa-clock"></i> <%= game.games_duration%></p>
-            </div>
-              <p>Prix : <%= game.price %> €</p>
-          </div>
+      <% @games.limit(1).each do |game| %>
+
+        <div class="gamecard">
+          <%= link_to game_path(game) do %>
+            <%= image_tag "https://www.numerama.com/wp-content/uploads/2017/09/catan_vr_illustration-e1521713039644.jpg", class: "img-card"%>
+              <div class="contentcard">
+                <div>
+                  <h4>Catan</h4>
+                <p><i class="fa-solid fa-users"></i> <%= game.player_number %></p>
+                <p><i class="fa-solid fa-clock"></i> <%= game.games_duration%></p>
+                </div>
+                  <p>Prix : <%= game.price %> €</p>
+              </div>
+          <% end %>
+        </div>
       <% end %>
-    </div>
-  <% end %>
-</div>
+
+
+    <% @games.limit(1).each do |game| %>
+
+      <div class="gamecard">
+        <%= link_to game_path(game) do %>
+          <%= image_tag "monopoly.jpg", class: "img-card"%>
+            <div class="contentcard">
+              <div>
+                <h4>Monopoly</h4>
+              <p><i class="fa-solid fa-users"></i> <%= game.player_number %></p>
+              <p><i class="fa-solid fa-clock"></i> <%= game.games_duration%></p>
+              </div>
+                <p>Prix : <%= game.price %> €</p>
+            </div>
+        <% end %>
+      </div>
+    <% end %>
+
+
+    <% @games.limit(1).each do |game| %>
+
+      <div class="gamecard">
+        <%= link_to game_path(game) do %>
+          <%= image_tag "qui.jpg", class: "img-card"%>
+            <div class="contentcard">
+              <div>
+                <h4>Qui est-ce ?</h4>
+              <p><i class="fa-solid fa-users"></i> <%= game.player_number %></p>
+              <p><i class="fa-solid fa-clock"></i> <%= game.games_duration%></p>
+              </div>
+                <p>Prix : <%= game.price %> €</p>
+            </div>
+        <% end %>
+      </div>
+    <% end %>
+
+
+</main>
