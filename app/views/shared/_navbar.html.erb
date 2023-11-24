@@ -1,4 +1,4 @@
-<div data-controller="formtoggle class="position-relative" >
+<div data-controller="formtoggle" class="position-relative" >
 
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon ">
 
@@ -10,13 +10,12 @@
         <% end %>
             <%= link_to "Accueil", games_path, class: "text-decoration-none text-dark" %>
       </div>
-
        <% if user_signed_in? %>
 
           <div class="d-flex align-items-center">
 
             <div data-action="click->formtoggle#open">
-              <p class="mt-3 me-3 toggleform"><%= current_user.address %> <i class="fa-solid fa-chevron-down"></i></p>
+              <p class="mt-3 me-3 toggleform truncated-text"><%= current_user.address%> <i class="fa-solid fa-chevron-down"></i></p>
             </div>
 
             <div class="labelsearch">
@@ -74,7 +73,7 @@
             <%= f.input :address,
               placeholder: "choisir une nouvelle adresse",
               label: false,
-              input_html: {class: 'labelnav inputnav', data: {address_autocomplete_target: "address"}},
+              input_html: {class: 'labelnav inputnav d-none', data: {address_autocomplete_target: "address"}},
               wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
             %>
 
