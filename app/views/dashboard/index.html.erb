@@ -1,62 +1,80 @@
-<h1>Bonjour <%= current_user.first_name %></h1>
 
-<button class="btn btn-success p-2 ml-3">
-  <i class="fa-solid fa-plus" style="color: #ffffff;"></i>
-  <%= link_to "Publier une nouvelle annonce", new_game_path, :class=>"text-white"%>
-</button>
 
-<h2>Vos annonces de jeux</h2>
-
-<ul>
-  <% @my_games.each do |game| %>
-  <li>
-    <div class="card mb-4 bg-light px-3 py-3 mt-2" data-controller="formtoggle" data-formtoggle-url-value= "<%= toggle_availability_path(id: game.id) %>" style="width: 40rem;">
-      <div class="text-right">
-
-      </div>
-      <h4><%= game.name %></h4>
-      <p>Prix : <%= game.price %></p>
-      <p>Disponible : <%= game.availability %></p>
-      <%= link_to "Plus de détails", game_path(game) %>
-      <%= link_to "Modifier l'annonce", edit_game_path(game) %>
-      <%= link_to "Supprimer l'annonce",
-  game_path(game),
-  data: {turbo_method: :delete, turbo_confirm: "Etes-vous sur de vouloir supprimer ce jeu ?"}
-%>
-<br>
-      <% if game.availability == true %>
-  <button class="btn btn-success btn-sm"
-          data-formtoggle-target="togglableElement"
-          data-action="click->formtoggle#fire">
-    <i class="fa-solid fa-bolt"></i>Désactiver mon jeu
-  </button>
-<% else %>
-  <button class="btn btn-danger btn-sm"
-          data-formtoggle-target="togglableElement"
-          data-action="click->formtoggle#fire">
-    <i class="fa-solid fa-bolt"></i> Proposer mon jeu à la location
-  </button>
-<% end %>
-  <li>
-  </div>
-  <% end %>
-</ul>
-
-<h2>Mes demandes de location :</h2>
-
-<ul>
-  <% @my_rents.each do |rent| %>
-  <li>
-    <div class="card mb-4 bg-light px-3 py-3 mt-2" style="width: 40rem;">
-      <h4>
-        <%= rent.game.name %>
-      </h4>
-      <p> Demande de la part de
-        <strong>
-          <%= rent.user.first_name %>
-        </strong></p>
-      <p>Tarif de location : <%= rent.game.price %> €</p>
-      <p> Du : <%= rent.start_date %> au : <%= rent.end_date %> </p>
+<div class="manageprofil">
+  <div class="contentprofil">
+    <%= current_user.photo.attached? ? (cl_image_tag current_user.photo.key, class: "imgdash", alt: "avatar", crop: :fill) : (image_tag "logo.png", class: "imgdash", alt: "avatar")%>
+    <div>
+    <h3><%= current_user.first_name %></h3>
+    <p><%= current_user.email %></p>
+    <p><%= current_user.address %></p>
     </div>
-    <% end %>
+  </div>
+
+  <%= link_to edit_user_registration_path, class: "btn btn-outline-primary align-self-start" do %>
+  <i class="fa-regular fa-pen-to-square"></i> Editer mon profil
+<% end %>
+</div>
+
+<ul class="nav nav-tabs m-5" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Mes annonces</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Demandes reçues</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Demandes envoyées</button>
+  </li>
 </ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+    <% @my_games.each do |game|%>
+      <div class="gamecard mx-5 my-3" data-controller="formtoggle" data-formtoggle-url-value= "<%= toggle_availability_path(id: game.id) %>">
+          <div class="contentcard">
+            <h4><%= game.name %></h4>
+            <p>Prix : <%= game.price %>€</p>
+          </div>
+
+          <div class="managecard">
+            <div>
+              <%= link_to "Supprimer",
+                game_path(game), class: "text-danger me-3",
+                data: {turbo_method: :delete, turbo_confirm: "Etes-vous sur de vouloir supprimer ce jeu ?"}
+              %>
+              <%= link_to "Modifier l'annonce", edit_game_path(game) %>
+            </div>
+            <% if game.availability == true %>
+              <button class="btn btn-danger btn-sm"
+                data-formtoggle-target="togglableElement"
+                data-action="click->formtoggle#fire">
+                Désactiver la location de ce jeu<i class="fa-solid fa-xmark ms-2"></i>
+              </button>
+            <% else %>
+              <button class="btn btn-success btn-sm"
+                data-formtoggle-target="togglableElement"
+                data-action="click->formtoggle#fire">
+                Proposer mon jeu à la location<i class="fa-solid fa-bolt ms-2"></i>
+              </button>
+            <% end %>
+          </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+    <% @my_rents.each do |rent| %>
+
+        <div class="gamecard mx-5 my-3">
+            <div class="contentcard">
+              <h4><%= rent.game.name %></h4>
+              <p> Demande de la part de
+              <strong>
+                <%= rent.user.first_name %>
+              </strong></p>
+              <p>Tarif de location : <%= rent.game.price %> €</p>
+              <p> Du : <%= rent.start_date %> au : <%= rent.end_date %> </p>
+            </div>
+        </div>
+      <% end %>
+  </div>
+  <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">...</div>
+</div>
