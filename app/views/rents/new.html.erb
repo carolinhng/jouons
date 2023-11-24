@@ -3,13 +3,13 @@
 <h1 class="my-3 mx-5">Location de <%= @game.name %> </h1>
 
 <%= simple_form_for [@game, @rent] do |f| %>
-<%= f.input :start_date,
-            label: 'Date de début de la location',
-            as: :string,
-            input_html: { data: { controller: "datepicker"} } %>
-<%= f.input :end_date,
-            label: 'Date de fin',
-            as: :string,
-            input_html: { data: { controller: "datepicker"} } %>
-<%= f.submit "Envoyer ma demande de location", class: "btn btn-primary" %>
+  <%= f.input :start_date,
+              label: 'Date de début de la location',
+              as: :string,
+              input_html: { data: { controller: "datepicker"} } %>
+  <%= f.input :end_date,
+              label: 'Date de fin',
+              as: :string,
+              input_html: { data: { controller: "datepicker"} } %>
+  <%= f.submit "Envoyer ma demande de location", class: "btn btn-primary" %>
 <% end %>

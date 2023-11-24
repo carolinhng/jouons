@@ -1,23 +1,39 @@
 
-<h2 class="m-4"><Label></Label>Liste des jeux à <%= current_user.address %></h2>
-<p class="m-4"><%= @games.count %> résultats</p>
 
-<div class="cards">
 
-  <% @games.each do |game| %>
+<div class="content">
 
-    <div class="gamecard">
-      <%= link_to game_path(game) do %>
-          <%= image_tag "logo.png", class: "img-card"%>
-          <div class="content">
-            <div>
-              <h4><%= game.name %></h4>
-            <p><i class="fa-solid fa-users"></i> <%= game.player_number %></p>
-            <p><i class="fa-solid fa-clock"></i> <%= game.games_duration%></p>
-            </div>
-              <p>Prix : <%= game.price %> €</p>
-          </div>
-      <% end %>
+  <div>
+    <div>
+      <h2 class="m-4"><Label></Label>Liste des jeux à <%= current_user.address %></h2>
+      <p class="m-4"><%= @games.count %> résultats</p>
     </div>
-  <% end %>
+  <div class="cards">
+    <% @games.each do |game| %>
+
+      <div class="gamecard">
+        <%= link_to game_path(game) do %>
+            <%= image_tag "logo.png", class: "img-card"%>
+            <div class="content">
+              <div>
+                <h4><%= game.name %></h4>
+              <p><i class="fa-solid fa-users"></i> <%= game.player_number %></p>
+              <p><i class="fa-solid fa-clock"></i> <%= game.games_duration%></p>
+              </div>
+                <p>Prix : <%= game.price %> €</p>
+            </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  </div>
+
+  <div style="width: 50%; height: 100vh; position: sticky; top: 0;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
+
 </div>
