@@ -42,9 +42,9 @@ bordeaux_users =
   email: Faker::Internet.email)
   User.new( first_name: Faker::Name.name, password: Faker::Internet.name, last_name: Faker::Name.name, address: "56 rue jardin public, 33000 Bordeaux",
   email: Faker::Internet.email)
-  User.new( first_name: Faker::Name.name, password: Faker::Internet.name, last_name: Faker::Name.name, address: "Rue du palais Gallien, Bordeaux",
+  User.new( first_name: Faker::Name.name, password: Faker::Internet.name, last_name: Faker::Name.name, address: "Av. Daumesnil, 75012 Paris",
   email: Faker::Internet.email)
-  User.new( first_name: Faker::Name.name, password: Faker::Internet.name, last_name: Faker::Name.name, address: "Nansouty, Bordeaux",
+  User.new( first_name: Faker::Name.name, password: Faker::Internet.name, last_name: Faker::Name.name, address: "Champ de Mars, 5 Av. Anatole France, 75007 Paris",
   email: Faker::Internet.email)
 bordeaux_users.save!
 
