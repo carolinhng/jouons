@@ -1,7 +1,7 @@
 class Game < ApplicationRecord
   include PgSearch::Model
   belongs_to :user
-  has_many :rents
+  has_many :rents, dependent: :destroy
   has_many_attached :photos
   pg_search_scope :search_by_name_and_description,
     against: [ :name, :description ],
