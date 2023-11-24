@@ -1,0 +1,28 @@
+
+
+.manageprofil {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px;
+  margin: 48px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.contentprofil {
+  display: flex;
+  gap: 24px;
+}
+
+.managecard {
+  padding: 16px;
+  border-top: 1px solid rgb(202, 202, 202);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.imgdash {
+  height: 150px;
+  border-radius: 50%;
+}
