@@ -94,7 +94,7 @@ article.save!
 #-------------------------------------------- USERS GAMES ---------------------------------------------------------------------------
 
 users = User.all
-2.times do
+4.times do
 file = File.open("app/assets/images/catan.jpg")
 article = Game.create!( name: "Catan",
   description: "À vous les joies et les peines de l'exploration de l'île de Catane !
@@ -109,7 +109,7 @@ article.photos.attach(io: file, filename: "catan.jpg", content_type: "image/png"
 article.save!
 end
 
-3.times do
+5.times do
 file = File.open("app/assets/images/uno.png")
 article = Game.create!( name: "Uno",
   description: "Le Uno est un jeu de cartes américain créé en 1971 par Merle Robbins et édité par Mattel. Basé sur les règles du 8 américain (qui se joue avec un jeu de cartes standard), le Uno lui applique un jeu de cartes spécifiquement dédié, ainsi que quelques règles supplémentaires.",
@@ -123,7 +123,7 @@ article.photos.attach(io: file, filename: "uno.png", content_type: "image/png")
 article.save!
 end
 
-2.times do
+4.times do
   file = File.open("app/assets/images/catan.jpg")
   article = Game.create!( name: "Catan",
     description: "À vous les joies et les peines de l'exploration de l'île de Catane !
@@ -139,7 +139,7 @@ end
   end
 
 
-  3.times do
+  5.times do
     file = File.open("app/assets/images/echec.jpeg")
     article = Game.create!( name: "Echec",
       description: "Jeu de logique à deux joueurs",
@@ -153,7 +153,7 @@ end
     article.save!
     end
 
-    3.times do
+    4.times do
       file = File.open("app/assets/images/qui.jpg")
       article = Game.create!( name: "Qui est-ce ? ",
         description: "Trouve mon buddy :)",
@@ -167,7 +167,7 @@ end
       article.save!
       end
 
-    4.times do
+    7.times do
       file = File.open("app/assets/images/tock.jpeg")
       article = Game.create!( name: "Le Tock ",
         description: "Très bon jue qui nous vient du Canada. Je recommande !",
