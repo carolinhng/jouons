@@ -34,6 +34,9 @@ class GamesController < ApplicationController
         locals: { current_user: current_user }),
         marker_html: render_to_string(partial: "marker_map_user") }
     ]
+    @rent = Rent.new
+
+    # @total_day = duration_rent(@rent.start_date, @rent.end_date)
   end
 
   def new
@@ -83,7 +86,11 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:name, :description, :price, :player_number, :games_durantion, :availability, photos:[])
+    params.require(:game).permit(:name, :description, :price, :player_number, :games_duration, :availability, photos:[])
   end
+
+  # def duration_rent(start_date, end_date)
+  #   end_date - start_date
+  # end
 
 end
