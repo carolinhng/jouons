@@ -13,14 +13,14 @@
 
       <div class="gamecard">
         <%= link_to game_path(game) do %>
-            <%= image_tag "logo.png", class: "img-card"%>
+        <%= cl_image_tag game.photos.first.key, class: "img-card", crop: :fill %>
             <div class="contentcard">
               <div>
                 <h4><%= game.name %></h4>
               <p><i class="fa-solid fa-users"></i> <%= game.player_number %></p>
               <p><i class="fa-solid fa-clock"></i> <%= game.games_duration%></p>
               </div>
-                <p>Prix : <%= game.price %> €</p>
+                <p><strong> Prix :</strong> <%= game.price %> € / jour</p>
             </div>
         <% end %>
       </div>

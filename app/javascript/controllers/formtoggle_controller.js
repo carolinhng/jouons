@@ -22,13 +22,13 @@ export default class extends Controller {
       })
 
     this.togglableElementTargets.forEach(target => {
-      if (target.innerText === " Proposer mon jeu à la location") {
-        target.innerHTML = `<i class="fa-solid fa-bolt"></i>Desactiver mon jeu`;
+      if (target.innerText === " Rendre mon jeu disponible") {
+        target.innerHTML = `<i class="fa-solid fa-xmark ms-2"></i> Rendre mon jeu indisponible`;
         target.classList.remove("btn-danger");
         target.classList.add("btn-success")
       }
       else {
-        target.innerHTML = `<i class="fa-solid fa-bolt"></i> Proposer mon jeu à la location`
+        target.innerHTML = `<i class="fa-solid fa-bolt"></i> Rendre mon jeu disponible`
         target.classList.remove("btn-success")
         target.classList.add("btn-danger")
       }
