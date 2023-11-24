@@ -21,7 +21,7 @@
           <%= render "shared/profilpick" %>
         </div>
         <div class="ps-3">
-          <p><span class="font-weight">Loué par : </span><br><%= @game.user.first_name.capitalize %> <%= @game.user.last_name.upcase %></p>
+          <p><span class="font-weight">Loué par </span><br><%= @game.user.first_name.capitalize %> <%= @game.user.last_name.upcase %></p>
         </div>
       </div>
 
@@ -31,15 +31,6 @@
         <p><span class="font-weight">Description</span><br><%= @game.description%></p>
       </div>
 
-
-      <div>
-        <% if @game.availability? %>
-            <p>Disponible</p>
-        <% end %>
-        <% if @game.availability == false %>
-            <p>Indisponible</p>
-        <% end %>
-      </div>
 
     </div>
 

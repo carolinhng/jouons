@@ -18,7 +18,7 @@ User.destroy_all
 Rent.destroy_all
 
 #----------------------------------------------------- ADMIN ---------------------------------------------------------------------------
-admin = User.new( first_name: "admin", password: "azerty", last_name: "admin", address: "22 Place de la Victoire, 33000 Bordeaux",
+admin = User.new( first_name: "Juliette", password: "azerty", last_name: "De la victoire", address: "22 Place de la Victoire, 33000 Bordeaux",
   email: "admin@admin.admin")
 admin.save!
 
