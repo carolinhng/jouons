@@ -1,10 +1,21 @@
 class GamesController < ApplicationController
 
   def index
-    @games = Game.all.where(availability: true)
+    @games = Game.where(availability: true)
+    # @users = @games.user
     if params[:query].present?
       @games = @games.search_by_name_and_description(params[:query])
+      # @users = @games.user
     end
+    # @markers = @users.geocoded.map do |user|
+    #   {
+    #     lat: user.geocode[0],
+    #     lng: user.geocode[1],
+    #     info_window_html: render_to_string(partial: "infos_card_map_game",
+    #     locals: { user: user, game: @game }),
+    #     marker_html: render_to_string(partial: "marker_map_game")
+    #   }
+    # end
   end
 
   def show
@@ -23,6 +34,9 @@ class GamesController < ApplicationController
         locals: { current_user: current_user }),
         marker_html: render_to_string(partial: "marker_map_user") }
     ]
+    @rent = Rent.new
+
+    # @total_day = duration_rent(@rent.start_date, @rent.end_date)
   end
 
   def new
@@ -72,7 +86,11 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:name, :description, :price, :player_number, :games_durantion, :availability, photos:[])
+    params.require(:game).permit(:name, :description, :price, :player_number, :games_duration, :availability, photos:[])
   end
+
+  # def duration_rent(start_date, end_date)
+  #   end_date - start_date
+  # end
 
 end

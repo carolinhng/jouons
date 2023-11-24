@@ -69,7 +69,16 @@
 
         <%= simple_form_for(current_user, as: :user, method: :patch, url: games_path) do |f| %>
           <div class="d-flex labelnav">
-            <%= f.input :address, placeholder: "choisir une nouvelle adresse", label: false, input_html: { class: 'labelnav inputnav' }%>
+            <%# <%= f.input :address, placeholder: "choisir une nouvelle adresse", label: false, input_html: { class: 'labelnav inputnav' }%>
+
+            <%= f.input :address,
+              placeholder: "choisir une nouvelle adresse",
+              label: false,
+              input_html: {class: 'labelnav inputnav', data: {address_autocomplete_target: "address"}},
+              wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+            %>
+
+
             <%= f.hidden_field :current_password %>
             <%= f.submit 'Valider', class: "ms-3 px-5 btn btn-primary" %>
           </div>
