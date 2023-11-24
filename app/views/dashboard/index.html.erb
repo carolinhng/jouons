@@ -15,7 +15,6 @@
 <% end %>
 </div>
 
-
 <ul class="nav nav-tabs m-5" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
     <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Mes annonces</button>
@@ -29,33 +28,13 @@
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-    <% @my_games.each do |game|%>
+    <% @my_games.each do |game| %>
+
       <div class="gamecard mx-5 my-3" data-controller="formtoggle" data-formtoggle-url-value= "<%= toggle_availability_path(id: game.id) %>">
           <div class="contentcard">
             <h4><%= game.name %></h4>
             <p>Prix : <%= game.price %>€</p>
           </div>
-<h2>Mes demandes reçues :</h2>
-
-<ul>
-  <% @my_query_rents.each do |rent| %>
-  <li>
-    <div class="card mb-4 bg-light px-3 py-3 mt-2" style="width: 40rem;">
-      <h4>
-        <%= rent.game.name %>
-      </h4>
-      <p> Demande de la part de
-        <strong>
-          <%= rent.user.first_name %>
-        </strong></p>
-      <p>Tarif de location : <%= rent.game.price %> €</p>
-      <p> Du : <%= rent.start_date %> au : <%= rent.end_date %> </p>
-    </div>
-    <% end %>
-</ul>
-
-
-<h2>Mes demandes envoyées :</h2>
 
           <div class="managecard">
             <div>
@@ -83,7 +62,7 @@
     <% end %>
   </div>
   <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-    <% @my_rents.each do |rent| %>
+  <% @my_query_rents.each do |rent| %>
 
         <div class="gamecard mx-5 my-3">
             <div class="contentcard">
@@ -98,5 +77,19 @@
         </div>
       <% end %>
   </div>
-  <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">...</div>
+  <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+   <% @my_rents.each do |rent| %>
+        <div class="gamecard mx-5 my-3">
+            <div class="contentcard">
+              <h4><%= rent.game.name %></h4>
+              <p> Demande de la part de
+              <strong>
+                <%= rent.user.first_name %>
+              </strong></p>
+              <p>Tarif de location : <%= rent.game.price %> €</p>
+              <p> Du : <%= rent.start_date %> au : <%= rent.end_date %> </p>
+            </div>
+        </div>
+      <% end %>
+  </div>
 </div>
