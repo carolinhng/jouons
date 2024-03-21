@@ -4,10 +4,15 @@ Let’s get back to board games 🎲!
 
 "Jouons" is a website that allows you to rent board games between individuals around your home depending on our geographic area. You can rent a game for a period and the prices are per day.
 
-This project was carried out with two other people as part of my training at Le Wagon school for a week. It's developp on Ruby On Rails framework.
+This project was carried out with two other people as part of my training at Le Wagon school for a week. It's developp on Ruby On Rails framework. We also used Cloudinary for image management, mapbox for dynamic maps and PgSearch for searching by games and address.
 
 During this project, I was more in charge of the back-end part and also of putting the website into production.
 
+## Database schema
+
+We used PostegreSQL to manage our database.
+
+![alt text](public/jouonsdb.png)
 
 ## Screen Shots
 
