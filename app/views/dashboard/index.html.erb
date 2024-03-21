@@ -32,7 +32,7 @@
 
       <div class="gamecard mx-5 my-3" data-controller="formtoggle" data-formtoggle-url-value= "<%= toggle_availability_path(id: game.id) %>">
   <% if game.availability %>
-              <button class="btn btn-success btn-sm""btn btn-danger btn-sm"
+              <button class="btn btn-success btn-sm"
                 data-formtoggle-target="togglableElement"
                 data-action="click->formtoggle#fire">
                 <i class="fa-solid fa-xmark ms-2"></i> Rendre mon jeu indisponible
